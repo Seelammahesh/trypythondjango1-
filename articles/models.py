@@ -34,14 +34,14 @@ class Articles(models.Model):
     published = models.DateField(auto_now=False, auto_now_add=False, default=timezone.now, null=True, blank=True)
 
     def save(self, *args, **kwargs):
-        super().save(self, *args, **kwargs)
+        super(Articles, self).save(*args, **kwargs)
 
 
 def article_pre_save(sender, instance, *args, **kwargs):
     print('pre_save')
     print(args, kwargs)
     if instance.slug is None:
-        slugifiy_instance_title(instance, save=False)
+        slugify_instance_title(instance, save=False)
 
 
 pre_save.connect(article_pre_save, sender=Articles)
@@ -51,7 +51,7 @@ def article_post_save(sender, instance, created, *args, **kwargs):
     print('post_save')
     print(args, kwargs)
     if created:
-        slugifiy_instance_title(instance, save=True)
+       slugify_instance_title(instance, save=True)
 
 
 post_save.connect(article_post_save, sender=Articles)
