@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body style="background-color: aqua;">
+<h1>Registration Successfull !</h1>
+
+    <h1>Login Here</h1>
+
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+
+        <div>
+            <label for="username" style="font-size: large; color:rgb(7, 7, 7)">Username :</label>
+            <input type="text" name="username" required><br><br>
+        </div>
+
+        <div>
+            <label for="password" style="font-size: large;">Password :</label>
+            <input type="password" name="password" required><br><br>
+        </div>
+
+
+        <button type="submit">Submit</button>
+    </form>
+
+
+    {% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+
+
+
+</body>
+</html>
