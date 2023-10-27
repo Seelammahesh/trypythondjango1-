@@ -13,3 +13,5 @@ video-53
 Used pint for custom measurements ..pip install pint
 Handled some custom validations like UndefinedUnitError
 
+video-54
+handled some custom validations for unit measurements in test.py
