@@ -27,3 +27,6 @@ By using pint we can perform unit conversions in django accordingly
 
 video-57
 wrote some views using crud (create,update,retrieve,delete) for Recipe Model in views.py file
+
+video-58
+django urls,and include and app name,..here we added some urls created urls.py file for each app included them in project urls,py file.
