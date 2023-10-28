@@ -19,3 +19,8 @@ handled some custom validations for unit measurements in test.py
 video-55
 Declared a quantity-as_float field in models.py
 Created utils.py file to  created a function to convert number string to float Ran some tests in tests.py file for quantity_as_floa
+
+video-56
+Here we used python pint to convert units
+Pip install pint
+By using pint we can perform unit conversions in django accordingly
