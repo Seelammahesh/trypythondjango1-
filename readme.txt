@@ -24,3 +24,6 @@ video-56
 Here we used python pint to convert units
 Pip install pint
 By using pint we can perform unit conversions in django accordingly
+
+video-57
+wrote some views using crud (create,update,retrieve,delete) for Recipe Model in views.py file
