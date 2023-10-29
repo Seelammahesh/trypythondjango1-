@@ -33,3 +33,7 @@ django urls,and include and app name,..here we added some urls created urls.py f
 
 video-59
 created templates for recipe list.html,detail.html,create-update,html...
+
+video - 60
+created RecipieIngredientForm in forms.py
+made some changes  recipe_update_view
