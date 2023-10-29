@@ -37,3 +37,7 @@ created templates for recipe app, list.html,detail.html,create-update,html...
 video - 60
 created RecipieIngredientForm in forms.py
 made some changes to  recipe_update_view
+
+video-61
+imported modelformset_factory to handle multiple forms at a time
+did some changes in views.py accordingly to handle formset..
