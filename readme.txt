@@ -48,3 +48,6 @@ Using def __init__(self):method
 We can create in forms directly in forms..py
 eg:name=forms.CharField(widget=forms.TextInput(attrs={"class":"form-control","placeholder":"Recipe name"}))
 made changes accordingly in forms.py (recipe app)
+
+video-63
+rendered forms and used some css stuff
