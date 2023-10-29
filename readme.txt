@@ -32,8 +32,8 @@ video-58
 django urls,and include and app name,..here we added some urls created urls.py file for each app included them in project urls,py file.
 
 video-59
-created templates for recipe list.html,detail.html,create-update,html...
+created templates for recipe app, list.html,detail.html,create-update,html...
 
 video - 60
 created RecipieIngredientForm in forms.py
-made some changes  recipe_update_view
+made some changes to  recipe_update_view
