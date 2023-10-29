@@ -30,3 +30,6 @@ wrote some views using crud (create,update,retrieve,delete) for Recipe Model in 
 
 video-58
 django urls,and include and app name,..here we added some urls created urls.py file for each app included them in project urls,py file.
+
+video-59
+created templates for recipe list.html,detail.html,create-update,html...

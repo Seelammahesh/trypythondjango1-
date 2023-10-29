@@ -7,7 +7,7 @@ from .forms import RecipeForm
 
 @login_required
 def recipe_list_view(request):
-    qs=Recipe.objects.filter(user=request.user)
+    qs=Recipe.objects.all()
     context={
         "objects_list":qs
     }
@@ -15,7 +15,7 @@ def recipe_list_view(request):
 
 @login_required
 def recipe_detail_view(request,id=None):
-    obj=get_object_or_404(Recipe,id=id,user=request.user)
+    obj=get_object_or_404(Recipe,id=id,)
     context={
         "object":obj
     }
@@ -32,12 +32,12 @@ def recipe_create_view(request,id=None):
         obj=form.save(commit=False)
         obj.user=request.user
         obj.save()
-        return redirect()
+        return redirect('recipe_detail_view',id=obj.id)
     return render(request,"recipe/create-update.html",context)
 
 @login_required
 def recipe_update_view(request,id=None):
-    obj = get_object_or_404(Recipe, id=id, user=request.user)
+    obj = get_object_or_404(Recipe, id=id,)
     form=RecipeForm(request.POST or None ,instance=obj)
     context = {
         "form": form

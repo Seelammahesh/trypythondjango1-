@@ -19,6 +19,12 @@ class Recipe(models.Model):
     def get_absolute_url(self):
         return reverse("recipe:detail",kwargs={"id":self.id})
 
+    def get_edit_url(self):
+        return reverse("recipe:update",kwargs={"id":self.id})
+
+    def get_ingredients_children(self):
+        return self.recipeingredients_set.all()
+
 class RecipeIngredients(models.Model):
     recipe=models.ForeignKey(Recipe,on_delete=models.CASCADE)
     name=models.CharField(max_length=220)
@@ -34,6 +40,8 @@ class RecipeIngredients(models.Model):
 
     def get_absolute_url(self):
         return self.recipe.get_absolute_url()
+
+
 
 
     def convert_to_system(self,system="mks"):
