@@ -43,7 +43,7 @@ imported modelformset_factory to handle multiple forms at a time
 did some changes in views.py accordingly to handle formset..
 
 video-62
-We can add form fields ,place holders ,widgeds & css in django in two different ways
+We can add form fields ,placeholders ,widgeds & css in django in two different ways
 Using def __init__(self):method
 We can create in forms directly in forms..py
 eg:name=forms.CharField(widget=forms.TextInput(attrs={"class":"form-control","placeholder":"Recipe name"}))
@@ -51,3 +51,6 @@ made changes accordingly in forms.py (recipe app)
 
 video-63
 rendered forms and used some css stuff
+
+video-64
+added some script,added some buttons and css in create-update.html
