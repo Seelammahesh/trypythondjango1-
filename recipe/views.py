@@ -60,5 +60,7 @@ def recipe_update_view(request,id=None):
             child.recipe = parent
             child.save()
         context['message']="Data saved"
+    if request.htmx:
+        return render(request,"recipe/forms.html",context)
     return render(request, "recipe/create-update.html", context)
 

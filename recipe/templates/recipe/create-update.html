@@ -1,36 +1,18 @@
-<style>
-.ingredient-form{
+
+ <style>
+    .ingredient-form{
         border-bottom: 1px solid black;
     }
     .hidden{
         display:none
     }
 </style>
-{% if message %}
 
-  {{message}}
 
-  {% endif %}
+<div style="margin-to:30px">
+     {% include 'recipe/forms.html' %}
 
-@@ -28,16 +31,46 @@
-        {% if formset %}
-        <h3>Ingredients</h3>
-        {{ formset.management_form }}
-        <div class='ingredient-form-list'>
-        {% for form in formset %}
-            <div class='ingredient-form'>
-                {{ form.as_p }}
-            </div>
-       {% endfor %}
-
-        </div>
-
-        <div id='empty-form' class='hidden'>{{ formset.empty_form.as_p}}</div>
-        <button id='add-more' type='button'>Add more</button>
-        {% endif %}
-        <button style='margin-top:10px;' type='submit'>save</button>
-    </form>
-</div>
+    </div>
 
 <script>
     const addMoreBtn = document.getElementById('add-more')
@@ -39,7 +21,7 @@
     addMoreBtn.addEventListener('click', add_new_form)
     function add_new_form(event) {
         if (event) {
-            event.provenDefault()
+            event.pravenDefault()
         }
         const currentIngredientForms = document.getElementsByClassName('ingredient-form')
         const currentIngredientForms=currentIngredientForms.length //+1
@@ -57,4 +39,3 @@
 
 
 </script>
-

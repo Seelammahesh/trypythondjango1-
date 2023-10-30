@@ -54,3 +54,9 @@ rendered forms and used some css stuff
 
 video-64
 added some script,added some buttons and css in create-update.html
+
+video-65
+installed django-htmx
+pip install django-htmx,included it in installed_apps and middlewares of settings.py file
+made some changes in create-update.html for htmx
+created forms.html in recipe app and rendered create-update.html using forms.html
