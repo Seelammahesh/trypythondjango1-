@@ -18,6 +18,8 @@ class Recipe(models.Model):
 
     def get_absolute_url(self):
         return reverse("recipe:detail",kwargs={"id":self.id})
+    def get_hx_url(self):
+        return reverse("recipe:hx-detail",kwargs={"id":self.id})
 
     def get_edit_url(self):
         return reverse("recipe:update",kwargs={"id":self.id})

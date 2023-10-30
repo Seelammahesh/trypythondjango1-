@@ -60,3 +60,14 @@ installed django-htmx
 pip install django-htmx,included it in installed_apps and middlewares of settings.py file
 made some changes in create-update.html for htmx
 created forms.html in recipe app and rendered create-update.html using forms.html
+
+video-66
+created partials directory in recipe and created detail.html..
+used some htmx fields like hx-get,hx-trigger ....
+created a new directory named fixtures and dumped all the data of recipe into it ..
+(python manage.py dumpdata recipe)--by using this we get data of recipe
+
+(python manage.py dumpdata recipe --indent 4) -- by using this we get json data..
+
+(python manage.py dumpdata recipe --indent 4 > fixtures/recipes.json) --- this will dump data into directory
+
