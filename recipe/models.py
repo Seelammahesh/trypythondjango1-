@@ -43,6 +43,13 @@ class RecipeIngredients(models.Model):
     def get_absolute_url(self):
         return self.recipe.get_absolute_url()
 
+    def get_hx_edit_url(self):
+        kwargs = {
+            "parent_id": self.recipe.id,
+            "id": self.id
+        }
+        return reverse("recipes:hx-ingredient-detail", kwargs=kwargs)
+
 
 
 

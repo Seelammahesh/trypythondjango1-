@@ -74,3 +74,8 @@ created a new directory named fixtures and dumped all the data of recipe into it
 video-67
 handled htmx and css at the same time  . updated the script in create-update.html..added htmx-indicator and some extrabuttons.
 
+vodeo-68
+created two nnew files in recipe/partials
+1)ingredient-form
+2)ingredient-invertedform
+created a view for recipe_ingredient_update_hx_view

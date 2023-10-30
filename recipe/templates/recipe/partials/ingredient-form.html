@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action='.' method="POST" hx-post='{% if url %}{{ url }}{% else %}.{% endif %}' hx-swap='outerHTML'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class='htmx-indicator'>Loading...</div>
+    <button class='htmx-inverted-indicator' style='margin-top:10px;' type='submit'>save</button>
+</form>
+</body>
+</html>
