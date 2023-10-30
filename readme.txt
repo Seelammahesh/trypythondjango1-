@@ -71,3 +71,6 @@ created a new directory named fixtures and dumped all the data of recipe into it
 
 (python manage.py dumpdata recipe --indent 4 > fixtures/recipes.json) --- this will dump data into directory
 
+video-67
+handled htmx and css at the same time  . updated the script in create-update.html..added htmx-indicator and some extrabuttons.
+

@@ -4,16 +4,29 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+    <style>
+        .htmx-indicator {
+        display: none;
+        }
+        .htmx-request .htmx-indicator{
+        display: inline;
+        }
+        .htmx-inverted-indicator{
+          display: inline ;
+          }
+          .htmx-request .htmx-inverted-indicator{
+              display: none;
+        }
+
+
+
+    </style>
 
 </head>
 <body>
-<p> This is a Htmx Rendered Page</p>
+
 <form action=" ." method="POST" hx-post="." hx-swap="outerHTML">
         {% csrf_token %}
-         {% if message %}
-          {{ message}}
-         {%  endif %}
-
         {% for field in form %}
         <div class="{% if  field.field.requried %}{{ form.required_css_class}}{% endif %}">
             {{ fiels.errors }}
@@ -56,7 +69,11 @@
         <div id='empty-form' class='hidden'>{{ formset.empty_form.as_p}}</div>
         <button id='add-more' type='button'>Add more</button>
         {% endif %}
-        <button style='margin-top:10px;' type='submit'>save</button>
+    <div class="htmx-indicator">Loading...</div>
+        <button class="htmx-inverted-indicator" style='margin-top:10px;' type='submit'>save</button>
+           {% if message %}
+        <p>  {{ message}}</p>
+         {%  endif %}
     </form>
     </div>
 </body>
