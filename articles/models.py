@@ -33,6 +33,15 @@ class Articles(models.Model):
     updated_on = models.DateTimeField(auto_now=True, null=True)
     published = models.DateField(auto_now=False, auto_now_add=False, default=timezone.now, null=True, blank=True)
 
+    object=ArticleManager()
+    @property
+    def name(self):
+        return self.title
+
+    def get_absolute_url(self):
+        # return f'/articles/{self.slug}/'
+        return reverse("articles:detail", kwargs={"slug": self.slug})
+
     def save(self, *args, **kwargs):
         super(Articles, self).save(*args, **kwargs)
 

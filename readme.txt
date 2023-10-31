@@ -88,3 +88,9 @@ added fields in forms.py file  "hx-post","hx-trigger", "hx-targest", "hx-swap"
 video-70
 htmx redirect ..made changes to  recipe_create_view to redirect headers
 
+video-71
+created an app search..
+did SEARCH_TYPE_MAPPING using app models
+in search app created templates for rendering data .results.html,results-view.html,search-form.html..
+also seen model managers... and lookups
+
