@@ -85,3 +85,6 @@ created a auto save for saving the input data
 added fields in forms.py file  "hx-post","hx-trigger", "hx-targest", "hx-swap"
 
 
+video-70
+htmx redirect ..made changes to  recipe_create_view to redirect headers
+

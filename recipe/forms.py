@@ -20,7 +20,7 @@ class RecipeForm(forms.ModelForm):
                 "class":'form-control',
                 "hx-post":".",
                 "hx-trigger":"keyup changed delay:500ms",
-                "hx-targest":"arecipe-container",
+                "hx-target":"recipe-container",
                 "hx-swap":"innerHTML"
 
             }
