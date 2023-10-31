@@ -48,7 +48,7 @@ class RecipeIngredients(models.Model):
             "parent_id": self.recipe.id,
             "id": self.id
         }
-        return reverse("recipes:hx-ingredient-detail", kwargs=kwargs)
+        return reverse("recipe:hx-ingredient-detail", kwargs=kwargs)
 
 
 

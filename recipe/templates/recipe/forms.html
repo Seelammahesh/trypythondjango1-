@@ -24,12 +24,12 @@
 
 </head>
 <body>
-
-<form action=" ." method="POST" hx-post="." hx-swap="outerHTML">
+<div id="recipe-container">
+<form action=" ." method="POST" hx-post="." hx-swap="outerHTML" hx-trigger="change delay:500ms">
         {% csrf_token %}
         {% for field in form %}
-        <div class="{% if  field.field.requried %}{{ form.required_css_class}}{% endif %}">
-            {{ fiels.errors }}
+        <div class="{% if  field.field.required %}{{ form.required_css_class}}{% endif %}">
+            {{ fields.errors }}
         {{ field.label_tag}}    {{ field }}
              {% if field.help_text %}
             <p class="help">{{field.help_text | safe }}</p>
@@ -52,7 +52,7 @@
         {% endif %}
 
 
-      <!---  <button style="margin-top:10px"; type="submit">Save</button>
+
 
 
        {% if formset %}
@@ -64,17 +64,17 @@
                     {{ form.as_p }}
                 </div>
         {% endfor %}
-        </div> --->
+        </div>
 
         <div id='empty-form' class='hidden'>{{ formset.empty_form.as_p}}</div>
         <button id='add-more' type='button'>Add more</button>
         {% endif %}
     <div class="htmx-indicator">Loading...</div>
-        <button class="htmx-inverted-indicator" style='margin-top:10px;' type='submit'>save</button>
-           {% if message %}
-        <p>  {{ message}}</p>
-         {%  endif %}
+        <button class="htmx-inverted-indicator" style='margin-top:10px;' type='submit'>save</button><br>
+        {% if message %}
+            {{ message }}
+        {%  endif %}
     </form>
-    </div>
+</div>
 </body>
 </html>

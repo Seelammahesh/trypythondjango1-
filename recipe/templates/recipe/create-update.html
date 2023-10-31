@@ -8,6 +8,22 @@
     }
 </style>
  <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+
+<body>
+  {% include "recipe/forms.html" %}
+<div style="margin-to:30px">
+
+     <h3>Ingredient</h3>
+    {% for ingredient in objects.get_ingredients_children %}
+            {% include 'recipes/partials/ingredient-inline.html' with object=ingredient %}
+    {% endfor %}
+    {% if new_ingredient_url %}
+    <div id='ingredient-create'>
+        <button hx-get="{{ new_ingredient_url }}" hx-trigger='click' hx-target='#ingredient-create' hx-swap='before end'>Add ingredient</button>
+        {% endif %}
+    </div>
+
+    </div>
 <script>
 
     const totalNewForms = document.getElementById('id_form-TOTAL_FORMS')
@@ -32,23 +48,6 @@
         formCopyTarget.append(copyEmptyFormEl)
     }
 </script>
-<body>
-
-<div style="margin-to:30px">
-     {% include 'recipe/forms.html' %}
-     <h3>Ingredient</h3>
-    {% for ingredient in objects.get_ingredients_children %}
-            {% include 'recipes/partials/ingredient-inline.html' with object=ingredient %}
-    {% endfor %}
-    {% if new_ingredient_url %}
-    <div id='ingredient-create'>
-
-    </div>
-
-    <button hx-get="{{ new_ingredient_url }}" hx-trigger='click' hx-target='#ingredient-create' hx-swap='beforeend'>Add ingredient</button>
-    {% endif %}
-
-    </div>
 
 </body>
 </html>
