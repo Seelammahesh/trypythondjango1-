@@ -1,53 +1,58 @@
 <html>
- <style>
-    .ingredient-form{
-        border-bottom: 1px solid black;
-    }
-    .hidden{
-        display:none
-    }
-</style>
- <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
-
+<head>
+    <style>
+        .ingredient-form {
+            border-bottom: 1px solid black;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+</head>
 <body>
-  {% include "recipe/forms.html" %}
-<div style="margin-to:30px">
+    {% extends 'base.html' %}
+    {% include "recipe/forms.html" %}
 
-     <h3>Ingredient</h3>
-    {% for ingredient in objects.get_ingredients_children %}
-            {% include 'recipes/partials/ingredient-inline.html' with object=ingredient %}
-    {% endfor %}
-    {% if new_ingredient_url %}
-    <div id='ingredient-create'>
-        <button hx-get="{{ new_ingredient_url }}" hx-trigger='click' hx-target='#ingredient-create' hx-swap='before end'>Add ingredient</button>
+    <div style="margin-top: 30px">
+        <h3>Ingredient</h3>
+        <div id="ingredient-form-list">
+            {% for ingredient in objects.get_ingredients_children %}
+                {% include 'recipes/partials/ingredient-inline.html' with object=ingredient %}
+            {% endfor %}
+        </div>
+
+        {% if new_ingredient_url %}
+        <div id='ingredient-create'>
+            <button hx-get="{{ new_ingredient_url }}" hx-trigger='click' hx-target='#ingredient-form-list' hx-swap='beforeend'>Add ingredient</button>
+        </div>
         {% endif %}
     </div>
 
-    </div>
-<script>
+    <script>
+        document.addEventListener('click', (event) => {
+            if (event.target.id === 'add-more') {
+                addNewForm(event);
+            }
+        });
 
-    const totalNewForms = document.getElementById('id_form-TOTAL_FORMS')
-    document.addEventListener('click',(event)=>{
-          if (event.target.id=='add-more'){
-                  add_new_form(event)    }
-        })
-        if (event) {
-            event.preventDefault()
+        function addNewForm(event) {
+            event.preventDefault();
+
+            const totalNewForms = document.getElementById('id_form-TOTAL_FORMS');
+            const currentFormCount = parseInt(totalNewForms.value);
+            const formCopyTarget = document.getElementById('ingredient-form-list');
+            const copyEmptyFormEl = document.getElementById('empty-form').cloneNode(true);
+
+            copyEmptyFormEl.setAttribute('class', 'ingredient-form');
+            copyEmptyFormEl.removeAttribute('id');
+            const regex = new RegExp('__prefix__', 'g');
+            const newFormHtml = copyEmptyFormEl.innerHTML.replace(regex, currentFormCount);
+            copyEmptyFormEl.innerHTML = newFormHtml;
+
+            formCopyTarget.insertAdjacentHTML('before end', copyEmptyFormEl.outerHTML);
+            totalNewForms.setAttribute('value', currentFormCount + 1);
         }
-        const totalNewForms = document.getElementById('id_form-TOTAL_FORMS')
-        const currentIngredientForms = document.getElementsByClassName('ingredient-form')
-        const currentIngredientForms=currentIngredientForms.length //+1
-        const formCopyTarget = document.getElementById('ingredient-form-list')
-        const copyemptyFormEl = document.getElementById('empty-form').cloneNode(true)
-        copyEmptyFormEl.setAttribute('class','ingredient-form')
-        copyEmptyFormEl.setAttribute('id','form-${currentFormCount}')
-        const regex=new RegExp('__prefix__','g')
-        copyEmptyFormEl.innerHTML = copyEmptyFormEl.innerHTML.replace(regex,currentFormCount)
-        totalNewForms.setAtribute('value', currentFormCount +1)
-        // now add new empty form element to our html form
-        formCopyTarget.append(copyEmptyFormEl)
-    }
-</script>
-
+    </script>
 </body>
 </html>
