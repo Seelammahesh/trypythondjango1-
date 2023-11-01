@@ -94,6 +94,10 @@ did SEARCH_TYPE_MAPPING using app models
 in search app created templates for rendering data .results.html,results-view.html,search-form.html..
 also seen model managers... and lookups
 
-video-71
+video-72
 worked on delete-recipe and recipe ingredient ..
 created a delete.html ..handled the delete views for both recipe and  recipe ingredient
+
+video-73
+added some error handlers in recipe_delete_view,recipe_ingredient_delete_view..created a template name base.html in templates .
+added a new html template in recipes/partials  name ingredient-inline-delete-response.html..

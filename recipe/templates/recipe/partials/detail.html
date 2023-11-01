@@ -13,8 +13,10 @@
     {% if object.get_edit_url %}
 <small>
     <a href='{{  object.get_edit_url}}'>Edit</a>
-
-    <a href='{{  object.get_delete_url}}'>Delete</a>
+    <a href='{{object.get_delete_url}}' hx-post='{{ objects.get_delete_url }}' hx-confirm='Are you sure you want to delete {{ objects.name }}?'
+    hx-trigger='click'
+    hx-headers={"X-CSRFToken": "{{ csrf_token }}"}'
+    >Delete</a>
 
 </small>
 
