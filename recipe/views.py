@@ -173,6 +173,9 @@ def recipe_ingredient_update_hx_view(request, parent_id=None, id=None):
     return render(request, "recipes/partials/ingredient-form.html", context)
 
 def recipe_ingredient_image_upload_view(request, parent_id=None):
+    template_name = "recipes/upload-image.html"
+    if request.htmx:
+        template_name = "recipes/partials/image-upload-form.html"
     try:
         parent_id=Recipe.objects.get(id=parent_id, user=request.user)
     except:
@@ -186,3 +189,4 @@ def recipe_ingredient_image_upload_view(request, parent_id=None):
         #obj.recipe_id=parent_id
         obj.save()
     return render(request,"image-form.html", {'form':form})
+    return render(request,template_name, {'form':form})
