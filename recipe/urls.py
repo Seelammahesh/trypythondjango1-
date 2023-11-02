@@ -7,7 +7,7 @@ app_name='recipe'
 urlpatterns = [
     path("", views.recipe_list_view, name="list"),
     path("create/", views.recipe_create_view, name="create"),
-    path("/<int:parent_id>/ingredient/<int:id>/delete/", views.recipe_ingredient_delete_view,
+    path("<int:parent_id>/ingredient/<int:id>/delete/", views.recipe_ingredient_delete_view,
          name='ingredient-delete'),
     path("<int:id>/update/", views.recipe_update_view, name="update"),
     path("<int:id>/", views.recipe_detail_view, name="detail"),

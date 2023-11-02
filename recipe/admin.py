@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
-from .models import Recipe,RecipeIngredients
+from .models import Recipe,RecipeIngredients,RecipeIngredientImage
 # Register your models here.
 
 user=get_user_model()
@@ -29,6 +29,7 @@ class RecipeAdmin(admin.ModelAdmin):
 admin.site.register(Recipe,RecipeAdmin),
 admin.site.register(RecipeIngredients)
 admin.site.register(user,UserAdmin)
+admin.site.register(RecipeIngredientImage)
 
 
 

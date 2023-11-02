@@ -114,4 +114,10 @@ included storages in settings.py ...installed apps
 created StaticRootS3Boto3Storage and MediaRootS3Boto3Storage in backends.py file and set locations
 and also included some aws related stuff in conf.py file.
 
+video-76
+installed django-storages,boto3 and pillow for media
+added them to installed_apps
+created recipe_ingredient_image_upload_handler,RecipeIngredientImage in recipe/models
+declared media root ,MEDIA_ROOT=BASE_DIR/"staticfiles-cdn"/"uploads"
+
 

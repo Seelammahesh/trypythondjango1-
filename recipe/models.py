@@ -1,4 +1,6 @@
 from django.db import models
+import pathlib
+import uuid
 from django.conf import settings
 import datetime
 from django.db.models import Q
@@ -89,6 +91,18 @@ class Recipe(models.Model):
 
     def get_ingredients_children(self):
         return self.recipeingredients_set.all()
+
+
+def recipe_ingredient_image_upload_handler(instance, filename):
+    fpath=pathlib.Path(filename)
+    new_fname=str(uuid.uuid())  #uuid->uudid+timestamp
+    return f"recipes/ingredient/{new_fname}{fpath.suffix}"
+
+class RecipeIngredientImage(models.Model):
+    recipe=models.ForeignKey(Recipe,on_delete=models.CASCADE)
+    image=models.ImageField(upload_to=recipe_ingredient_image_upload_handler) #path/to/the/actual/file.png
+    #image
+    #extracted_text
 
 class RecipeIngredients(models.Model):
     recipe=models.ForeignKey(Recipe,on_delete=models.CASCADE)
