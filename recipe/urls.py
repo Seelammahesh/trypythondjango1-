@@ -1,6 +1,7 @@
 from django.urls import path
 
-from . import views
+from .import views
+from .views import recipe_ingredient_image_upload_view
 
 app_name='recipe'
 
@@ -12,7 +13,7 @@ urlpatterns = [
     path("<int:id>/update/", views.recipe_update_view, name="update"),
     path("<int:id>/", views.recipe_detail_view, name="detail"),
 
-
+    path("<int:parent_id>/ingredient/image-upload/",recipe_ingredient_image_upload_view,name="recipe_ingredient_image_upload_view"),
     path("hx/<int:id>/delete/", views.recipe_delete_view, name='delete'),
     path("hx/<int:id>/", views.recipe_detail_hx_view, name='hx-detail'),
     path("hx/<int:parent_id>/ingredient/<int:id>/", views.recipe_ingredient_update_hx_view, name='hx-ingredient-detail'),

@@ -121,3 +121,9 @@ created recipe_ingredient_image_upload_handler,RecipeIngredientImage in recipe/m
 declared media root ,MEDIA_ROOT=BASE_DIR/"staticfiles-cdn"/"uploads"
 
 
+video -77
+
+Created new RecipeIngredientImageForm
+Created new html image-form.html
+ran migrations...
+Created new view in views.py recipe_ingredient_image_upload_view
