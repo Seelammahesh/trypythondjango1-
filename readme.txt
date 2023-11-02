@@ -105,4 +105,13 @@ added a new html template in recipes/partials  name ingredient-inline-delete-res
 video-74
 created static folder in recipe app and inside it created a directory recipes ..inside it created recipes-htmx.html file
  recipe/static/recipes-htmx.html
- handeld some css in recipes.htmx.html file
+ handled some css in recipes.htmx.html file
+
+video-75
+created python directory named cdn  .in that cdn created python files backends.py,conf.py ..
+installed storages from ..pip install django-storages
+included storages in settings.py ...installed apps
+created StaticRootS3Boto3Storage and MediaRootS3Boto3Storage in backends.py file and set locations
+and also included some aws related stuff in conf.py file.
+
+
