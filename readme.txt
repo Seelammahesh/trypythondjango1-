@@ -135,3 +135,11 @@ video-79
 added models.jsonField to RecipeIngredientImage
 created services.py in recipes app
 installed requests, using pip install requests
+
+
+video 80
+installed doctl cli
+installed doctl using ,Invoke-WebRequest https://github.com/digitalocean/doctl/releases/download/v1.100.0/doctl-1.100.0-windows-amd64.zip -OutFile ~\doctl-1.100.0-windows-amd64.zip
+extracted binary by running
+Expand-Archive -Path ~\doctl-1.100.0-windows-amd64.zip
+created app (doctl apps create--spec.do/app.yaml)
