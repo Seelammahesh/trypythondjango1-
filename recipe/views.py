@@ -2,6 +2,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 from django.contrib.auth.decorators import login_required
 from django.forms.models import modelformset_factory
 from django.urls import reverse
+from.services import extract_text_via_ocr_service
 # Create your views here.
 #crud - Create,Retrieve,update,Delete
 from .models import Recipe,RecipeIngredients
@@ -188,5 +189,12 @@ def recipe_ingredient_image_upload_view(request, parent_id=None):
         obj.recipe=parent_id
         #obj.recipe_id=parent_id
         obj.save()
-    return render(request,"image-form.html", {'form':form})
+        # send image file->microservice api
+        # microsevice api-> data about the file
+        # cloud providers $s
+        result = extract_text_via_ocr_service(obj.image)
+        obj.extracted = result
+        obj.save()
+        # print(obj.extracted)
+    #return render(request,"image-form.html", {'form':form})
     return render(request,template_name, {'form':form})

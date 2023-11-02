@@ -130,3 +130,8 @@ Created new view in views.py recipe_ingredient_image_upload_view
 video-78
 created image-upload-form.html,upload-image.html...
 made changes to recipe_ingredient_image_upload_view
+
+video-79
+added models.jsonField to RecipeIngredientImage
+created services.py in recipes app
+installed requests, using pip install requests
