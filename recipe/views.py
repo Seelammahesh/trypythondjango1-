@@ -8,6 +8,10 @@ from.services import extract_text_via_ocr_service
 from .models import Recipe,RecipeIngredients
 from .forms import RecipeForm,RecipeIngredientForm,RecipeIngredientImageForm
 from django.http import HttpResponse,Http404
+from.utils import(
+    convert_to_qty_units,
+    parse_paragraph_to_recipe_line
+)
 
 @login_required
 def recipe_list_view(request):
@@ -192,9 +196,26 @@ def recipe_ingredient_image_upload_view(request, parent_id=None):
         # send image file->microservice api
         # microsevice api-> data about the file
         # cloud providers $s
-        result = extract_text_via_ocr_service(obj.image)
-        obj.extracted = result
+        #result = extract_text_via_ocr_service(obj.image)
+        #obj.extracted = result
+        extracted = extract_text_via_ocr_service(obj.image)
+        obj.extracted = extracted
         obj.save()
         # print(obj.extracted)
-    #return render(request,"image-form.html", {'form':form})
+        og = extracted['results']
+        # print(obj.extracted)
+        results = parse_paragraph_to_recipe_line(og)
+        dataset = convert_to_qty_units(results)
+        new_objs = []
+        for data in dataset:
+            data['recipe_id'] = parent_id
+            new_objs.append(RecipeIngredients(**data))
+    RecipeIngredients.objects.bulk_create(new_objs)
+    success_url = parent_obj.get_edit_url()
+    if request.htmx:
+        headers = {
+            'HX-Redirect': success_url
+        }
+        return HttpResponse("Success", headers=headers)
+    return redirect(success_url)
     return render(request,template_name, {'form':form})

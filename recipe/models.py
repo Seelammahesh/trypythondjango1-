@@ -90,7 +90,11 @@ class Recipe(models.Model):
         return reverse("recipe:delete",kwargs={"id":self.id})
 
     def get_ingredients_children(self):
-        return self.recipeingredients_set.all()
+        #return self.recipeingredient_set.filter()
+        return self.recipeingredient_set.all()
+
+    def get_image_upload_url(self):
+        return reverse("recipes:recipe-ingredient-image-upload", kwargs={"parent_id": self.id})
 
 
 def recipe_ingredient_image_upload_handler(instance, filename):
@@ -111,6 +115,7 @@ class RecipeIngredients(models.Model):
     name=models.CharField(max_length=220)
     description=models.TextField(blank=True,null=True)
     quantity=models.CharField(max_length=50)
+    quantity = models.CharField(max_length=50, blank=True, null=True)
     quantity_as_float=models.FloatField(null=True,blank=True)
     # pounds,lbs,oz,grams
     unit=models.CharField(max_length=50,validators=[validate_unit_of_measure])
@@ -145,6 +150,7 @@ class RecipeIngredients(models.Model):
             return None
         ureg=pint.UnitRegistry(system=system)
         measurement=self.quantity_as_float *ureg[self.unit]
+        measurement = self.quantity_as_float * ureg[self.unit.lower()]
         print(measurement)
         return measurement
     def as_mks(self):

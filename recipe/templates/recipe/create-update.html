@@ -23,6 +23,7 @@
         </div>
 
         {% if new_ingredient_url %}
+          <div hx-get="{{object.get_image_upload_url }}" hx-trigger='revealed'></div>
         <div id='ingredient-create'>
             <button hx-get="{{ new_ingredient_url }}" hx-trigger='click' hx-target='#ingredient-form-list' hx-swap='beforeend'>Add ingredient</button>
         </div>

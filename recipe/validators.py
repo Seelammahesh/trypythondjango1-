@@ -8,7 +8,8 @@ valid_unit_measurement=['pounds','lbs','oz','gram']
 def validate_unit_of_measure(value):
     ureg = pint.UnitRegistry()
     try:
-        single_unit=ureg[value]
+        #single_unit=ureg[value]
+        single_unit = ureg[value.lower()]
     except UndefinedUnitError as e:
         raise ValidationError(f"{value} is not valid unit measurement")
     except:

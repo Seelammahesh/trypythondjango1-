@@ -151,3 +151,8 @@ parsing OCR Microservice Results
 created python file in recipe app ---> extract-example.py
 in example.py created  parse_paragraph_to_recipe_line function
 imported list from typing and unitRegistry from pint
+
+video-84
+updated afield in recipe models
+imported convert_to_qty_units from utils.py file to views
+ran migrations and migrate to alter newly created model fields..

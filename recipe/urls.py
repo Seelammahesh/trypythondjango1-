@@ -12,7 +12,7 @@ urlpatterns = [
          name='ingredient-delete'),
     path("<int:id>/update/", views.recipe_update_view, name="update"),
     path("<int:id>/", views.recipe_detail_view, name="detail"),
-
+   #path("<int:parent_id>/ingredient/image-upload/",  recipe_ingredient_image_upload_view),
     path("<int:parent_id>/ingredient/image-upload/",recipe_ingredient_image_upload_view,name="recipe_ingredient_image_upload_view"),
     path("hx/<int:id>/delete/", views.recipe_delete_view, name='delete'),
     path("hx/<int:id>/", views.recipe_detail_hx_view, name='hx-detail'),
