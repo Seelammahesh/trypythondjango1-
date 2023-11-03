@@ -143,3 +143,11 @@ installed doctl using ,Invoke-WebRequest https://github.com/digitalocean/doctl/r
 extracted binary by running
 Expand-Archive -Path ~\doctl-1.100.0-windows-amd64.zip
 created app (doctl apps create--spec.do/app.yaml)
+
+video-81,82,83
+installed pre commit using ----pip install pre-commit
+added css,js files git add static/css and  pushed into github
+parsing OCR Microservice Results
+created python file in recipe app ---> extract-example.py
+in example.py created  parse_paragraph_to_recipe_line function
+imported list from typing and unitRegistry from pint
