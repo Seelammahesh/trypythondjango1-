@@ -17,11 +17,14 @@
 
 
         <div class='container'>
+            {% include 'base/navbar.html' %]
+             <div class='container'>
+                    {% block content %}
+                    <h3>This will be replaced</h3>
+                    {% endblock content %}
+                </div>
+            </div>
 
-            {% block content %}
-            <h3>This will be replaced</h3>
-            {% endblock content %}
-        </div>
 
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

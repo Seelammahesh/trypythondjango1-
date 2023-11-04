@@ -156,3 +156,9 @@ video-84
 updated afield in recipe models
 imported convert_to_qty_units from utils.py file to views
 ran migrations and migrate to alter newly created model fields..
+
+
+video-85
+Added Boostrap cdn links from bootstrap.org
+created navbar.html file in templates->base
+included cdn links in base.html and navbar.html

@@ -14,7 +14,7 @@
     {% extends 'base.html' %}
     {% include "recipe/forms.html" %}
 
-    <div style="margin-top: 30px">
+  <!---  <div style="margin-top: 30px">
         <h3>Ingredient</h3>
         <div id="ingredient-form-list">
             {% for ingredient in objects.get_ingredients_children %}
@@ -27,9 +27,30 @@
         <div id='ingredient-create'>
             <button hx-get="{{ new_ingredient_url }}" hx-trigger='click' hx-target='#ingredient-form-list' hx-swap='beforeend'>Add ingredient</button>
         </div>
-        {% endif %}
-    </div>
+        {% endif %} --->
 
+    <div class='row'  >
+        <div> class='{% if object.id %}col-12 col-md-8 {% else %}col-md-6{% endif %}'>
+            { if not object.id %}
+                <h1>Create Recipe</h1>
+            {% endif %}
+
+            {% include 'recipes/partials/forms.html' %}
+            </div>
+        <div>class='{% if object.id %}col-12 col-md-4{% endif %}'>
+            <h3>Ingredient</h3>
+            {% for ingredient in objects.get_ingredients_children %}
+                    {% include 'recipes/partials/ingredient-inline.html' with object=ingredient %}
+            {% endfor %}
+            {% if new_ingredient_url %}
+            <div hx-get="{{object.get_image_upload_url }}" hx-trigger='revealed'></div>
+            <div id='ingredient-create'>
+
+            </div>
+
+            <button hx-get="{{ new_ingredient_url }}" hx-trigger='click' hx-target='#ingredient-create' hx-swap='beforeend'>Add ingredient</button>
+            {% endif %}
+</div>
     <script>
         document.addEventListener('click', (event) => {
             if (event.target.id === 'add-more') {
