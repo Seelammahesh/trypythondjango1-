@@ -170,3 +170,10 @@ wrote some models for Meals,an also used choices field.
 used foreignKey to connect it to a recipe
 registered it in admin.py file
 ran migrations and migrate
+
+
+video-87
+handled some querysets
+created signals.py file
+ran some tests inn tests.py
+
