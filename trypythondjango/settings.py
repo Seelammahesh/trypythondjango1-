@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'articles',
     'recipe',
     'storages',
-    'search'
+    'search',
+    'meals'
 ]
 
 MIDDLEWARE = [
@@ -56,6 +57,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'trypythondjango.urls'
+LOGIN_URL='/login/'
 import os
 
 TEMPLATES = [

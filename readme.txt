@@ -162,3 +162,11 @@ video-85
 Added Boostrap cdn links from bootstrap.org
 created navbar.html file in templates->base
 included cdn links in base.html and navbar.html
+
+
+video-86
+created a meals app
+wrote some models for Meals,an also used choices field.
+used foreignKey to connect it to a recipe
+registered it in admin.py file
+ran migrations and migrate
