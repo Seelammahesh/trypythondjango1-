@@ -99,7 +99,7 @@ class Recipe(models.Model):
 
 def recipe_ingredient_image_upload_handler(instance, filename):
     fpath=pathlib.Path(filename)
-    new_fname=str(uuid.uuid())  #uuid->uudid+timestamp
+    new_fname=str(uuid.UUID)  #uuid->uudid+timestamp
     return f"recipes/ingredient/{new_fname}{fpath.suffix}"
 
 

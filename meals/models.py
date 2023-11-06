@@ -79,9 +79,17 @@ class Meal(models.Model):
     status=models.CharField(max_length=1, choices=MealStatus.choices,default=MealStatus.PENDING)
     timestamp=models.DateTimeField(auto_now_add=True)
     updated=models.DateTimeField(auto_now=True)
+    prev_status = models.CharField(max_length=1, choices=MealStatus.choices, default=MealStatus.PENDING)
 
 
     objects=MealManager()
+
+    def save(self, *args, **kwargs):
+        if self.pk:
+            original = Meal.objects.get(pk=self.pk)
+            if self.status != original.status:
+                self.prev_status = original.status
+        super(Meal, self).save(*args, **kwargs)
 
 def meal_post_save(sender, instance, created, *args, **kwargs):
     if instance.status != instance.prev_status:
@@ -91,5 +99,4 @@ def meal_post_save(sender, instance, created, *args, **kwargs):
             meal_removed.send(sender=sender, instance=instance)
         instance.prev_status = instance.status
         instance.save()
-
 post_save.connect(meal_post_save, sender=Meal)

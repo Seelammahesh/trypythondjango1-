@@ -182,3 +182,7 @@ created meal_queue_toggle_view function in meals.views
 created queue-toggle.html in templates/meals/partials
 made some changes to templates/recipes/list.html
 added it to urls.py
+
+video-89
+created a example_calc.py file in meals app to generate bill
+updated create-update.html and detail .html according to meals

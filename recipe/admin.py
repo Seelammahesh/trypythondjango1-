@@ -26,8 +26,11 @@ class RecipeAdmin(admin.ModelAdmin):
     list_display=['name','user']
     readonly_fields = ['user','timestamp','updated']
 
+class RecipeIngredientAdmin(admin.ModelAdmin):
+    list_display = ['id','name']
+
 admin.site.register(Recipe,RecipeAdmin),
-admin.site.register(RecipeIngredients)
+admin.site.register(RecipeIngredients,RecipeIngredientAdmin)
 admin.site.register(user,UserAdmin)
 admin.site.register(RecipeIngredientImage)
 
