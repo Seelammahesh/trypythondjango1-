@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from  recipe.models import Recipe
 from django.db.models.signals import post_save
-from .signals import (meal_added, meal_removed)
+from .signals import meal_added, meal_removed
 
 # Create your models here.
 
@@ -99,4 +99,5 @@ def meal_post_save(sender, instance, created, *args, **kwargs):
             meal_removed.send(sender=sender, instance=instance)
         instance.prev_status = instance.status
         instance.save()
+
 post_save.connect(meal_post_save, sender=Meal)

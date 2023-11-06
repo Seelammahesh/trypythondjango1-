@@ -65,3 +65,7 @@ def article_post_save(sender, instance, created, *args, **kwargs):
 
 post_save.connect(article_post_save, sender=Articles)
 
+
+
+
+

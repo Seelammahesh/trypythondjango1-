@@ -186,3 +186,9 @@ added it to urls.py
 video-89
 created a example_calc.py file in meals app to generate bill
 updated create-update.html and detail .html according to meals
+
+video-90
+created utils.py and signals.py file in meals app
+created function generate_meal_queue_totals to calculate total
+generated some signals to test weather they are working properly or not
+
