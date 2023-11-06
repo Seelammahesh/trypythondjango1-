@@ -1,6 +1,4 @@
-
 from django.shortcuts import render
-
 from articles.models import Articles
 from recipe.models import Recipe
 

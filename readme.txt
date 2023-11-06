@@ -177,3 +177,8 @@ handled some querysets
 created signals.py file
 ran some tests inn tests.py
 
+video-88
+created meal_queue_toggle_view function in meals.views
+created queue-toggle.html in templates/meals/partials
+made some changes to templates/recipes/list.html
+added it to urls.py

@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from search.views import search_view
+from meals.views import meal_queue_toggle_view
+
 
 
 
@@ -25,5 +27,6 @@ urlpatterns = [
     path('pantry/recipe/',include('recipe.urls')),
     path('blog/', include('articles.urls')),
     path('search/',search_view, name='search'),
+path('meal-toggle/<int:recipe_id>', meal_queue_toggle_view, name='meal-toggle'),
 
     ]
